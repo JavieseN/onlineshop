@@ -18,7 +18,7 @@ public class ArticleFactory {
 		case "electronica":
 			article = new Electronics();
 			break;
-		case "alimentación":
+		case "alimentacion":
 			article = new Food();
 			break;
 		default:
