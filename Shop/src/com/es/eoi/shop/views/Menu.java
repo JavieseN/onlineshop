@@ -10,8 +10,7 @@ public class Menu {
 		System.out.println("1-COMPRAR ARTICULOS");
 		System.out.println("2-LISTAR ARTICULOS");
 		System.out.println("3-GESTIONAR ARTICULOS");
-		
-		@SuppressWarnings("resource")
+				
 		Scanner scan= new Scanner(System.in);
 		
 		int option= scan.nextInt();

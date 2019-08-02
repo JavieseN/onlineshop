@@ -5,6 +5,7 @@ import com.es.eoi.shop.interfaces.Prizable;
 public abstract class Article implements Prizable {
 
 	private String name;
+	private String code;
 	private Double price=0.0;
 	private String vat;
 	private Integer stock;
@@ -51,6 +52,17 @@ public abstract class Article implements Prizable {
 	public void setCategory(String category) {
 		this.category = category;
 	}
+	
+	
+	
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
 	@Override
 	public Double getTotalPrice() {		
 		System.out.println("CALCULADO CON IVA DEFAULT");

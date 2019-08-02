@@ -1,11 +1,12 @@
 package com.es.eoi.shop.interfaces;
 
-import com.es.eoi.shop.entities.Article;
 
-public interface Manageable {
-		
-	public void save(Article article);
-	public void delete(Article article);
+
+public interface Manageable<T> {
 	
+	public T read(String code);
+	public void save(T object);
+	public void delete(T object);
+	public void update(T object);
 
 }

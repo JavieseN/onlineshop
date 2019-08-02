@@ -4,9 +4,9 @@ import com.es.eoi.shop.entities.Article;
 import com.es.eoi.shop.entities.Warehouse;
 import com.es.eoi.shop.interfaces.Manageable;
 
-public class ArticleManager implements Manageable {
+public class ArticleManager implements Manageable<Article> {
 
-	private Warehouse warehouse;	
+	private Warehouse warehouse;
 
 	public ArticleManager(Warehouse warehouse) {
 		super();
@@ -33,6 +33,24 @@ public class ArticleManager implements Manageable {
 				article = null;
 			}
 		}
+	}
+
+	@Override
+	public Article read(String code) {
+		for (Article article : warehouse.getArticles()) {
+
+			if (article != null && article.getCode().equals(code)) {
+				return article;
+			}
+
+		}
+		return null;
+	}
+
+	@Override
+	public void update(Article article) {
+		//TODO
+
 	}
 
 }
