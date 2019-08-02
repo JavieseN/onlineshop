@@ -6,7 +6,12 @@ import com.es.eoi.shop.interfaces.Manageable;
 
 public class ArticleManager implements Manageable {
 
-	private Warehouse warehouse;
+	private Warehouse warehouse;	
+
+	public ArticleManager(Warehouse warehouse) {
+		super();
+		this.warehouse = warehouse;
+	}
 
 	@Override
 	public void save(Article newArticle) {

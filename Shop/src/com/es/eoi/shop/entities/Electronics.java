@@ -2,9 +2,9 @@ package com.es.eoi.shop.entities;
 
 public class Electronics extends Article {
 
-	private static final Double ELECTRONICS_VAT = 1.21;
 	private String power;
 	private Double guarantee;
+	private static final Double ELECTRONICS_VAT = 1.21;
 
 	public String getPower() {
 		return power;

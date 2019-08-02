@@ -2,14 +2,15 @@ package com.es.eoi.shop.entities;
 
 import com.es.eoi.shop.interfaces.Prizable;
 
-public class Article implements Prizable {
+public abstract class Article implements Prizable {
 
 	private String name;
 	private Double price=0.0;
 	private String vat;
 	private Integer stock;
 	private String category;
-	private final static Double DEFAULT_IVA=1.21;
+	
+	private static final Double DEFAULT_VAT=1.21;
 
 	public String getName() {
 		return name;
@@ -53,7 +54,12 @@ public class Article implements Prizable {
 	@Override
 	public Double getTotalPrice() {		
 		System.out.println("CALCULADO CON IVA DEFAULT");
-		return this.getPrice()*DEFAULT_IVA;
+		return this.getPrice()*DEFAULT_VAT;
+	}
+
+	@Override
+	public String toString() {
+		return "Article [name=" + name + ", price=" + price + ", stock=" + stock + ", category=" + category + "]";
 	}
 
 

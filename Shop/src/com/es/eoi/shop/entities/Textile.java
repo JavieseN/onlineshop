@@ -2,9 +2,9 @@ package com.es.eoi.shop.entities;
 
 public class Textile extends Article {
 
-	private static final Double TEXTILE_VAT = 1.21;
 	private String color;
 	private String size;
+	private static final Double TEXTILE_VAT = 1.21;
 
 	public String getColor() {
 		return color;

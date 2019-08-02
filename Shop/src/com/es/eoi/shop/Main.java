@@ -12,16 +12,18 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
-		Menu.printMenu();
-//		
+//		Menu.printMainMenu();
+		
 //		Article article= new Article();
 //		article.getTotalPrice();
 //		
 //		Article article2= new Food();
 //		article2.getTotalPrice();
 //		
-//		Article article3=ArticleFactory.getArticle("textil");
-//		article3.getTotalPrice();
+		Article article3=ArticleFactory.getArticle("textil");
+		article3.getTotalPrice();
+		
+		System.out.println(article3);
 
 	}
 

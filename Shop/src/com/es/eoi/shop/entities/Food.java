@@ -2,9 +2,9 @@ package com.es.eoi.shop.entities;
 
 public class Food extends Article {
 
-	private static final Double FOOD_VAT = 1.10;
 	private String expirationDate;
 	private String allergens;
+	private static final Double FOOD_VAT = 1.10;
 
 	public String getExpirationDate() {
 		return expirationDate;
