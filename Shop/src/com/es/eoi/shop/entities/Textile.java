@@ -23,8 +23,7 @@ public class Textile extends Article {
 	}
 
 	@Override
-	public Double getTotalPrice() {
-		System.out.println("CALCULADO CON IVA TEXTIL");
+	public Double getTotalPrice() {	
 		return this.getPrice() * TEXTILE_VAT;
 	}
 

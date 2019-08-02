@@ -23,9 +23,10 @@ public class Electronics extends Article {
 	}
 
 	@Override
-	public Double getTotalPrice() {
-		System.out.println("CALCULADO CON EL IVA DE ELECTRONICA");
+	public Double getTotalPrice() {		
 		return this.getPrice() * ELECTRONICS_VAT;
 	}
+	
+	
 
 }

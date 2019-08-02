@@ -11,8 +11,6 @@ public abstract class Article implements Prizable {
 	private Integer stock;
 	private String category;
 	
-	private static final Double DEFAULT_VAT=1.21;
-
 	public String getName() {
 		return name;
 	}
@@ -64,15 +62,17 @@ public abstract class Article implements Prizable {
 	}
 
 	@Override
-	public Double getTotalPrice() {		
-		System.out.println("CALCULADO CON IVA DEFAULT");
-		return this.getPrice()*DEFAULT_VAT;
+	public Double getTotalPrice() {			
+		return this.getPrice();
 	}
 
 	@Override
 	public String toString() {
-		return "Article [name=" + name + ", price=" + price + ", stock=" + stock + ", category=" + category + "]";
+		return "Article [name=" + name + ", code=" + code + ", price=" + price + ", stock=" + stock + ", category="
+				+ category + "]";
 	}
+
+	
 
 
 

@@ -16,41 +16,46 @@ public class ArticleManager implements Manageable<Article> {
 	@Override
 	public void save(Article newArticle) {
 
-		for (Article article : warehouse.getArticles()) {
-
-			if (article.equals(null)) {
-				article = newArticle;
+		for (int i = 0; i < warehouse.getArticles().length; i++) {
+			if (null == warehouse.getArticles()[i]) {
+				warehouse.getArticles()[i] = newArticle;
+				warehouse.getArticles()[i].setCode(String.valueOf(i));
+				break;
 			}
 		}
+
 	}
 
 	@Override
 	public void delete(Article deleteArticle) {
 
-		for (Article article : warehouse.getArticles()) {
-
-			if (article.equals(deleteArticle)) {
-				article = null;
+		for (int i = 0; i < warehouse.getArticles().length; i++) {
+			if (warehouse.getArticles()[i].getCode().equals(deleteArticle.getCode())) {
+				warehouse.getArticles()[i] = null;
+				break;
 			}
 		}
 	}
 
 	@Override
 	public Article read(String code) {
-		for (Article article : warehouse.getArticles()) {
-
-			if (article != null && article.getCode().equals(code)) {
-				return article;
+		for (int i = 0; i < warehouse.getArticles().length; i++) {
+			if (warehouse.getArticles()[i].getCode().equals(code)) {
+				return warehouse.getArticles()[i];
 			}
-
 		}
 		return null;
 	}
 
 	@Override
 	public void update(Article article) {
-		//TODO
+		// TODO
 
+	}
+
+	@Override
+	public Article[] listAll() {
+		return warehouse.getArticles();
 	}
 
 }

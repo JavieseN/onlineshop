@@ -14,12 +14,15 @@ public class ArticleFactory {
 		switch (category) {
 		case "textil":
 			article = new Textile();
+			article.setCategory(category);
 			break;
 		case "electronica":
 			article = new Electronics();
+			article.setCategory(category);
 			break;
 		case "alimentacion":
 			article = new Food();
+			article.setCategory(category);
 			break;
 		default:
 			break;

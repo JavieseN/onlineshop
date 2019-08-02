@@ -23,8 +23,7 @@ public class Food extends Article {
 	}
 
 	@Override
-	public Double getTotalPrice() {
-		System.out.println("CALCULADO CON EL IVA DE COMIDA");
+	public Double getTotalPrice() {		
 		return this.getPrice() * FOOD_VAT;
 	}
 
