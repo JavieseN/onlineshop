@@ -6,7 +6,7 @@ import com.es.eoi.shop.views.Menu;
 
 public class Main {
 
-	public static Warehouse warehouse = new Warehouse(100);
+	public static final Warehouse warehouse = new Warehouse(100);
 
 	public static void main(String[] args) {
 
