@@ -67,13 +67,16 @@ public class Menu {
 		
 		switch (option) {
 		case 1:
-			article=ArticleFactory.getArticle("textil");			
+			article=ArticleFactory.getArticle("textil");
+			article.setName("textil"+(Main.warehouse.getArticles().size()+1));
 			break;
 		case 2:
 			article=ArticleFactory.getArticle("alimentacion");
+			article.setName("alimentacion"+(Main.warehouse.getArticles().size()+1));
 			break;
 		case 3:
 			article=ArticleFactory.getArticle("electronica");
+			article.setName("electronica"+(Main.warehouse.getArticles().size()+1));
 			break;
 		default:
 			System.out.println("OPCION NO VÁLIDA");

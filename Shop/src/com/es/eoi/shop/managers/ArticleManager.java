@@ -1,5 +1,7 @@
 package com.es.eoi.shop.managers;
 
+import java.util.List;
+
 import com.es.eoi.shop.entities.Article;
 import com.es.eoi.shop.entities.Warehouse;
 import com.es.eoi.shop.interfaces.Manageable;
@@ -14,48 +16,40 @@ public class ArticleManager implements Manageable<Article> {
 	}
 
 	@Override
-	public void save(Article newArticle) {
-
-		for (int i = 0; i < warehouse.getArticles().length; i++) {
-			if (null == warehouse.getArticles()[i]) {
-				warehouse.getArticles()[i] = newArticle;
-				warehouse.getArticles()[i].setCode(String.valueOf(i));
-				break;
-			}
-		}
-
-	}
-
-	@Override
-	public void delete(Article deleteArticle) {
-
-		for (int i = 0; i < warehouse.getArticles().length; i++) {
-			if (warehouse.getArticles()[i].getCode().equals(deleteArticle.getCode())) {
-				warehouse.getArticles()[i] = null;
-				break;
-			}
-		}
-	}
-
-	@Override
 	public Article read(String code) {
-		for (int i = 0; i < warehouse.getArticles().length; i++) {
-			if (warehouse.getArticles()[i].getCode().equals(code)) {
-				return warehouse.getArticles()[i];
+
+		for (Article article : warehouse.getArticles()) {
+			if (article != null && article.getCode().equals(code)) {
+				return article;
 			}
 		}
 		return null;
 	}
 
 	@Override
-	public void update(Article article) {
-		// TODO
+	public void save(Article entity) {
+		this.warehouse.getArticles().add(entity);
+	}
+
+	@Override
+	public void delete(Article entity) {
+		for (int i = 0; i < warehouse.getArticles().size(); i++) {
+			Article article = warehouse.getArticles().get(i);
+			if (article.getCode().equals(entity.getCode())) {
+				warehouse.getArticles().remove(i);
+			}
+		}
+	}
+
+	@Override
+	public void update(Article entity) {
+		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public Article[] listAll() {
-		return warehouse.getArticles();
+	public List<Article> listAll() {
+		return this.warehouse.getArticles();
 	}
 
 }

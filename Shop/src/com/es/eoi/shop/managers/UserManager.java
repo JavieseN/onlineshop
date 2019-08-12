@@ -1,14 +1,15 @@
 package com.es.eoi.shop.managers;
 
-import com.es.eoi.shop.Main;
+import java.util.List;
+
 import com.es.eoi.shop.entities.User;
 import com.es.eoi.shop.interfaces.Manageable;
 
 public class UserManager implements Manageable<User> {
 
-	private User[] users;
+	private List<User> users;
 
-	public UserManager(User[] users) {
+	public UserManager(List<User> users) {
 		super();
 		this.users = users;
 	}
@@ -26,24 +27,17 @@ public class UserManager implements Manageable<User> {
 
 	@Override
 	public void save(User entity) {
-		for (int i = 0; i < users.length; i++) {
-			if (null == users[i]) {
-				users[i] = entity;
-				break;
-			}
-		}
-
+		this.users.add(entity);
 	}
 
 	@Override
 	public void delete(User entity) {
-		for (int i = 0; i < users.length; i++) {
-			if (users[i].equals(entity)) {
-				users[i] = null;
-				break;
+		for (int i = 0; i < users.size(); i++) {
+			User user = users.get(i);
+			if (user.getUsername().equals(entity.getUsername())) {
+				users.remove(i);
 			}
 		}
-
 	}
 
 	@Override
@@ -53,8 +47,8 @@ public class UserManager implements Manageable<User> {
 	}
 
 	@Override
-	public User[] listAll() {
-		return Main.users;
+	public List<User> listAll() {
+		return this.users;
 	}
 
 }

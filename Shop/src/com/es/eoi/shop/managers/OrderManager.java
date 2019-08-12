@@ -1,57 +1,54 @@
 package com.es.eoi.shop.managers;
 
-import com.es.eoi.shop.Main;
+import java.util.List;
+
 import com.es.eoi.shop.entities.Order;
 import com.es.eoi.shop.interfaces.Manageable;
 
 public class OrderManager implements Manageable<Order> {
 
-	private Order[] orders;
+	private List<Order> orders;
 
-	public OrderManager(Order[] orders) {
+	public OrderManager(List<Order> orders) {
 		super();
 		this.orders = orders;
 	}
 
 	@Override
 	public Order read(String code) {
-		for (int i = 0; i < orders.length; i++) {
-			if (orders[i].getId().equals(code)) {
-				return orders[i];
+
+		for (Order order : orders) {
+			if (order != null && order.getId().equals(code)) {
+				return order;
 			}
 		}
 		return null;
 	}
 
 	@Override
-	public void save(Order object) {
-		for (int i = 0; i < orders.length; i++) {
-			if (null == orders[i]) {
-				orders[i] = object;
-				break;
-			}
-		}
-
+	public void save(Order entity) {
+		this.orders.add(entity);
 	}
 
 	@Override
-	public void delete(Order object) {
-		for (int i = 0; i < orders.length; i++) {
-			if (orders[i].equals(object)) {
-				orders[i] = null;
+	public void delete(Order entity) {
+		for (int i = 0; i < orders.size(); i++) {
+			Order order = orders.get(i);
+			if (order.getId().equals(entity.getId())) {
+				orders.remove(i);
 			}
 		}
 	}
 
 	@Override
-	public void update(Order object) {
-		// TODO
+	public void update(Order entity) {
+		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public Order[] listAll() {
-		return Main.orders;
+	public List<Order> listAll() {
+		return this.orders;
 	}
 
 }
