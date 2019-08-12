@@ -24,6 +24,7 @@ public class Main {
 		initWarehouse();
 
 		Menu.printMainMenu();
+		
 	}
 
 	public static void initWarehouse() {
