@@ -16,4 +16,11 @@ public class Food extends Article {
 		return this.getPrice() * FOOD_VAT;
 	}
 
+	@Override
+	public String toString() {
+		return "Food [expirationDate=" + expirationDate + ", allergens=" + allergens + ", getName()=" + getName()
+				+ ", getCode()=" + getCode() + ", getPrice()=" + getPrice() + ", getCategory()=" + getCategory() + "]";
+	}
+
+	
 }

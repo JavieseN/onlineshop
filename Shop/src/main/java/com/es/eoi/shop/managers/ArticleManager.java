@@ -1,5 +1,6 @@
 package com.es.eoi.shop.managers;
 
+import java.io.IOException;
 import java.util.List;
 
 import com.es.eoi.shop.entities.Article;
@@ -29,6 +30,11 @@ public class ArticleManager implements Manageable<Article> {
 	@Override
 	public void save(Article entity) {
 		this.warehouse.getArticles().add(entity);
+		try {
+			this.warehouse.insertArticle(entity);
+		} catch (IOException e) {			
+			e.printStackTrace();
+		}
 	}
 
 	@Override

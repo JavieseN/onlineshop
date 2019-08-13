@@ -16,4 +16,12 @@ public class Textile extends Article {
 		return this.getPrice() * TEXTILE_VAT;
 	}
 
+	@Override
+	public String toString() {
+		return "Textile [color=" + color + ", size=" + size + ", getName()=" + getName() + ", getCode()=" + getCode()
+				+ ", getPrice()=" + getPrice() + ", getCategory()=" + getCategory() + "]";
+	}
+
+	
+	
 }

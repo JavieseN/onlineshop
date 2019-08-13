@@ -15,6 +15,12 @@ public class Electronics extends Article {
 	public Double getTotalPrice() {		
 		return this.getPrice() * ELECTRONICS_VAT;
 	}
+
+	@Override
+	public String toString() {
+		return "Electronics [power=" + power + ", guarantee=" + guarantee + ", getName()=" + getName() + ", getCode()="
+				+ getCode() + ", getPrice()=" + getPrice() + ", getCategory()=" + getCategory() + "]";
+	}
 	
 	
 

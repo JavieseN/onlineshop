@@ -69,14 +69,20 @@ public class Menu {
 		case 1:
 			article=ArticleFactory.getArticle("textil");
 			article.setName("textil"+(Main.warehouse.getArticles().size()));
+			article.setCode("AAAAA");
+			article.setPrice(100.0);
 			break;
 		case 2:
 			article=ArticleFactory.getArticle("alimentacion");
 			article.setName("alimentacion"+(Main.warehouse.getArticles().size()));
+			article.setCode("BBBBB");
+			article.setPrice(10.0);
 			break;
 		case 3:
 			article=ArticleFactory.getArticle("electronica");
 			article.setName("electronica"+(Main.warehouse.getArticles().size()));
+			article.setCode("EEEEE");
+			article.setPrice(999.0);
 			break;
 		default:
 			System.out.println("OPCION NO VÁLIDA");

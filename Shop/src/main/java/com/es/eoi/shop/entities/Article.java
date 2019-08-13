@@ -16,16 +16,4 @@ public abstract class Article implements Prizable {
 	private Integer stock;
 	private String category;
 	
-	
-	@Override
-	public String toString() {
-		return "Article [name=" + name + ", code=" + code + ", price=" + price + ", stock=" + stock + ", category="
-				+ category + "]";
-	}
-
-	
-
-
-
-
 }
