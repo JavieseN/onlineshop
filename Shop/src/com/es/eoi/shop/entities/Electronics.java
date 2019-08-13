@@ -1,27 +1,16 @@
 package com.es.eoi.shop.entities;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class Electronics extends Article {
 
 	private String power;
 	private Double guarantee;
 	private static final Double ELECTRONICS_VAT = 1.21;
-
-	public String getPower() {
-		return power;
-	}
-
-	public void setPower(String power) {
-		this.power = power;
-	}
-
-	public Double getGuarantee() {
-		return guarantee;
-	}
-
-	public void setGuarantee(Double guarantee) {
-		this.guarantee = guarantee;
-	}
-
+	
 	@Override
 	public Double getTotalPrice() {		
 		return this.getPrice() * ELECTRONICS_VAT;
