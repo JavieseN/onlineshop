@@ -42,14 +42,14 @@ public class ArticleFactory {
 			article.setCategory("textil");
 			article.setCode(json.getAsJsonObject().get("code").getAsString());
 			article.setName(json.getAsJsonObject().get("name").getAsString());
-			article.setPrice(json.getAsJsonObject().get("prize").getAsDouble());
+			article.setPrice(json.getAsJsonObject().get("price").getAsDouble());
 			break;
 		case "electronica":
 			article = new Electronics();
 			article.setCategory("electronica");
 			article.setCode(json.getAsJsonObject().get("code").getAsString());
 			article.setName(json.getAsJsonObject().get("name").getAsString());
-			article.setPrice(json.getAsJsonObject().get("prize").getAsDouble());
+			article.setPrice(json.getAsJsonObject().get("price").getAsDouble());
 		
 			break;
 		case "alimentacion":
@@ -57,7 +57,7 @@ public class ArticleFactory {
 			article.setCategory("alimentacion");
 			article.setCode(json.getAsJsonObject().get("code").getAsString());
 			article.setName(json.getAsJsonObject().get("name").getAsString());
-			article.setPrice(json.getAsJsonObject().get("prize").getAsDouble());
+			article.setPrice(json.getAsJsonObject().get("price").getAsDouble());
 			break;
 		default:
 			break;

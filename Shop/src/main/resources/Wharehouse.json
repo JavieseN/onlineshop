@@ -1,5 +1,6 @@
-{"name":"LED TV","code": "00001","prize": "999","category":"electronica"}
-{"name":"OLED TV","code": "00002","prize": "1999","category":"electronica"}
-{"name":"PLATANO","code": "00003","prize": "1","category":"electronica"}
-{"name":"CAMISETA","code": "00004","prize": "10","category":"textil"}
+{"name":"LED TV","code": "00001","price": "999","category":"electronica"}
+{"name":"OLED TV","code": "00002","price": "1999","category":"electronica"}
+{"name":"PLATANO","code": "00003","price": "1","category":"electronica"}
+{"name":"CAMISETA","code": "00004","price": "10","category":"textil"}
 {"name":"electronica4","code":"EEEEE","price":999.0,"category":"electronica"}
+{"name":"alimentacion5","code":"BBBBB","price":10.0,"category":"alimentacion"}
