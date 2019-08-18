@@ -36,8 +36,7 @@ public class ArticleManager implements Manageable<Article> {
 
 	@Override
 	public List<Article> listAll() throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+		return this.repository.listAll();
 	}
 
 	
