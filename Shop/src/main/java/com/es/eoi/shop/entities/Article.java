@@ -9,11 +9,11 @@ import lombok.Setter;
 @Setter
 public abstract class Article implements Prizable {
 
+	private int id;
 	private String name;
 	private String code;
-	private Double price=0.0;
-	private String vat;
 	private Integer stock;
+	private double price;
 	private String category;
-	
+
 }

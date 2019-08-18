@@ -1,5 +1,6 @@
 package com.es.eoi.shop.views;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 import com.es.eoi.shop.Main;
@@ -9,7 +10,7 @@ import com.es.eoi.shop.utils.ArticleFactory;
 public class Menu {
 
 	@SuppressWarnings("resource")
-	public static void printMainMenu() {
+	public static void printMainMenu() throws SQLException {
 
 		System.out.println("BIENVENIDO A MI TIENDA, INTRODUZCA UNA OPCION");
 		System.out.println("1-INSERTAR ARTICULOS");
@@ -37,7 +38,7 @@ public class Menu {
 
 	}
 
-	private static void printArticles() {
+	private static void printArticles() throws SQLException {
 						
 		for (Article article : Main.articleManager.listAll()) {
 			
@@ -51,7 +52,7 @@ public class Menu {
 		
 	}
 
-	private static void printMenuInsertArticle() {
+	private static void printMenuInsertArticle() throws SQLException {
 
 		Article article = null;
 		
@@ -68,19 +69,19 @@ public class Menu {
 		switch (option) {
 		case 1:
 			article=ArticleFactory.getArticle("textil");
-			article.setName("textil"+(Main.warehouse.getArticles().size()));
+			article.setName("textil");
 			article.setCode("AAAAA");
 			article.setPrice(100.0);
 			break;
 		case 2:
 			article=ArticleFactory.getArticle("alimentacion");
-			article.setName("alimentacion"+(Main.warehouse.getArticles().size()));
+			article.setName("alimentacion");
 			article.setCode("BBBBB");
 			article.setPrice(10.0);
 			break;
 		case 3:
 			article=ArticleFactory.getArticle("electronica");
-			article.setName("electronica"+(Main.warehouse.getArticles().size()));
+			article.setName("electronica");
 			article.setCode("EEEEE");
 			article.setPrice(999.0);
 			break;

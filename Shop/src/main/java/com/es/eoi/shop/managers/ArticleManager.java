@@ -1,61 +1,46 @@
 package com.es.eoi.shop.managers;
 
-import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 import com.es.eoi.shop.entities.Article;
-import com.es.eoi.shop.entities.Warehouse;
 import com.es.eoi.shop.interfaces.Manageable;
+import com.es.eoi.shop.repositories.ArticleRepository;
 
 public class ArticleManager implements Manageable<Article> {
 
-	private Warehouse warehouse;
-
-	public ArticleManager(Warehouse warehouse) {
-		super();
-		this.warehouse = warehouse;
+	private ArticleRepository repository= new ArticleRepository();
+	
+	@Override
+	public Article read(String code) throws SQLException {
+		return this.repository.read(code);
 	}
 
 	@Override
-	public Article read(String code) {
+	public void save(Article object) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
 
-		for (Article article : warehouse.getArticles()) {
-			if (article != null && article.getCode().equals(code)) {
-				return article;
-			}
-		}
+	@Override
+	public void delete(Article object) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void update(Article object) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<Article> listAll() throws SQLException {
+		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
-	public void save(Article entity) {
-		this.warehouse.getArticles().add(entity);
-		try {
-			this.warehouse.insertArticle(entity);
-		} catch (IOException e) {			
-			e.printStackTrace();
-		}
-	}
-
-	@Override
-	public void delete(Article entity) {
-		for (int i = 0; i < warehouse.getArticles().size(); i++) {
-			Article article = warehouse.getArticles().get(i);
-			if (article.getCode().equals(entity.getCode())) {
-				warehouse.getArticles().remove(i);
-			}
-		}
-	}
-
-	@Override
-	public void update(Article entity) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public List<Article> listAll() {
-		return this.warehouse.getArticles();
-	}
+	
+	
 
 }

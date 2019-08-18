@@ -1,54 +1,44 @@
 package com.es.eoi.shop.managers;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import com.es.eoi.shop.entities.Order;
 import com.es.eoi.shop.interfaces.Manageable;
+import com.es.eoi.shop.repositories.OrderRepository;
 
 public class OrderManager implements Manageable<Order> {
 
-	private List<Order> orders;
-
-	public OrderManager(List<Order> orders) {
-		super();
-		this.orders = orders;
+	private OrderRepository repository=new OrderRepository();;
+	
+	@Override
+	public Order read(String code) {
+		return this.repository.read(code);
 	}
 
 	@Override
-	public Order read(String code) {
+	public void save(Order object) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
 
-		for (Order order : orders) {
-			if (order != null && order.getId().equals(code)) {
-				return order;
-			}
-		}
+	@Override
+	public void delete(Order object) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void update(Order object) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<Order> listAll() throws SQLException {
+		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
-	public void save(Order entity) {
-		this.orders.add(entity);
-	}
-
-	@Override
-	public void delete(Order entity) {
-		for (int i = 0; i < orders.size(); i++) {
-			Order order = orders.get(i);
-			if (order.getId().equals(entity.getId())) {
-				orders.remove(i);
-			}
-		}
-	}
-
-	@Override
-	public void update(Order entity) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public List<Order> listAll() {
-		return this.orders;
-	}
 
 }
