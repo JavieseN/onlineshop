@@ -30,7 +30,7 @@ public class Menu {
 			break;
 
 		default:
-			System.out.println("OPCION NO VÁLIDA");
+			System.out.println("OPCION NO VÃ�LIDA");
 			break;
 		}
 
@@ -68,25 +68,25 @@ public class Menu {
 		
 		switch (option) {
 		case 1:
-			article=ArticleFactory.getArticle("textil");
+			article=ArticleFactory.getArticle(3);
 			article.setName("textil");
 			article.setCode("AAAAA");
 			article.setPrice(100.0);
 			break;
 		case 2:
-			article=ArticleFactory.getArticle("alimentacion");
+			article=ArticleFactory.getArticle(2);
 			article.setName("alimentacion");
 			article.setCode("BBBBB");
 			article.setPrice(10.0);
 			break;
 		case 3:
-			article=ArticleFactory.getArticle("electronica");
+			article=ArticleFactory.getArticle(1);
 			article.setName("electronica");
 			article.setCode("EEEEE");
 			article.setPrice(999.0);
 			break;
 		default:
-			System.out.println("OPCION NO VÁLIDA");
+			System.out.println("OPCION NO VÃ�LIDA");
 			break;
 		}
 		

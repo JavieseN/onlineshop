@@ -14,6 +14,6 @@ public abstract class Article implements Prizable {
 	private String code;
 	private Integer stock;
 	private double price;
-	private String category;
+	private ArticleCategory category;
 
 }

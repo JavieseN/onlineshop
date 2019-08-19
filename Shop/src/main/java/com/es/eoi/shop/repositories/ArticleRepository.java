@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.es.eoi.shop.entities.Article;
+import com.es.eoi.shop.entities.ArticleCategory;
 import com.es.eoi.shop.interfaces.Manageable;
 import com.es.eoi.shop.utils.ArticleFactory;
 import com.es.eoi.shop.utils.CategoryEnum;
@@ -29,7 +30,7 @@ public class ArticleRepository implements Manageable<Article> {
 	public ArticleRepository() {
 		this.database = "jdbc:mysql://localhost:3306/shop?serverTimezone=UTC";
 		this.user = "root";
-		this.password = "root";
+		this.password = "1234";
 	}
 
 	public Connection getConnection() throws SQLException {
@@ -42,7 +43,8 @@ public class ArticleRepository implements Manageable<Article> {
 		Article article = null;
 		Connection con = getConnection();
 
-		String sql = "SELECT * FROM ARTICLE WHERE CODE=?";
+		//String sql = "SELECT * FROM ARTICLE WHERE CODE=? ";
+		String sql = "SELECT idArticle,code,article.name,stock,category.name as category FROM article INNER JOIN category ON article.idCategory = category.idcategory WHERE CODE=? ";
 		PreparedStatement statement = con.prepareStatement(sql);
 		statement.setString(1, code);
 
@@ -50,26 +52,15 @@ public class ArticleRepository implements Manageable<Article> {
 
 		while (rs.next()) {
 			
-			int category=rs.getInt("idCategory");
+			ArticleCategory category = new ArticleCategory();
+			category.setIdCategory(rs.getInt("idArticle"));
+			category.setName(rs.getString("category"));
 			
-			switch (category) {
-			case 1:
-				article = ArticleFactory.getArticle(CategoryEnum.valueOf("ELECTRONICS").getCategoryName());
-				break;
-			case 2:
-				article = ArticleFactory.getArticle(CategoryEnum.valueOf("FOOD").getCategoryName());
-				break;
-			case 3:
-				article = ArticleFactory.getArticle(CategoryEnum.valueOf("TEXTILE").getCategoryName());
-				break;
-			default:			
-				article = ArticleFactory.getArticle(CategoryEnum.valueOf("ELECTRONICS").getCategoryName());
-				break;
-			}
-		
+			article = ArticleFactory.getArticle(category.getIdCategory());
 			article.setId(rs.getInt("idArticle"));
 			article.setName(rs.getString("name"));
 			article.setCode(rs.getString("code"));
+			article.setCategory(category);
 		}
 		
 		con.close();
@@ -96,37 +87,27 @@ public class ArticleRepository implements Manageable<Article> {
 	}
 
 	@Override
-	public List<Article> listAll() throws SQLException {
+	public List<Article> listAll() throws SQLException 
+	{
 		List<Article> articles = new ArrayList<Article>();;
 		Article article = null;
 		Connection con = getConnection();
 
-		String sql = "SELECT * FROM ARTICLE";
+		String sql = "SELECT idArticle,code,A.name,stock,C.name as category  FROM article A INNER JOIN category C ON A.idCategory = C.idcategory";
 		PreparedStatement statement = con.prepareStatement(sql);
 		ResultSet rs = statement.executeQuery();
 
 		while (rs.next()) {
 			
-			int category=rs.getInt("idCategory");
+			ArticleCategory category = new ArticleCategory();
+			category.setIdCategory(rs.getInt("idArticle"));
+			category.setName(rs.getString("category"));
 			
-			switch (category) {
-			case 1:
-				article = ArticleFactory.getArticle(CategoryEnum.valueOf("ELECTRONICS").getCategoryName());
-				break;
-			case 2:
-				article = ArticleFactory.getArticle(CategoryEnum.valueOf("FOOD").getCategoryName());
-				break;
-			case 3:
-				article = ArticleFactory.getArticle(CategoryEnum.valueOf("TEXTILE").getCategoryName());
-				break;
-			default:			
-				article = ArticleFactory.getArticle(CategoryEnum.valueOf("ELECTRONICS").getCategoryName());
-				break;
-			}
-		
+			article = ArticleFactory.getArticle(category.getIdCategory());
 			article.setId(rs.getInt("idArticle"));
 			article.setName(rs.getString("name"));
 			article.setCode(rs.getString("code"));
+			article.setCategory(category);
 			
 			articles.add(article);
 		}
