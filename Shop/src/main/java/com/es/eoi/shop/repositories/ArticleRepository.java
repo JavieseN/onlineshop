@@ -71,6 +71,8 @@ public class ArticleRepository implements Manageable<Article> {
 			article.setName(rs.getString("name"));
 			article.setCode(rs.getString("code"));
 		}
+		
+		con.close();
 
 		return article;
 	}
@@ -128,6 +130,8 @@ public class ArticleRepository implements Manageable<Article> {
 			
 			articles.add(article);
 		}
+		
+		con.close();
 
 		return articles;
 	}
